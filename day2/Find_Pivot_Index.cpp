@@ -1,0 +1,18 @@
+//https://leetcode.com/submissions/detail/672860856/
+class Solution {
+public:
+    int pivotIndex(vector<int>& nums) {
+        int sum = 0;
+        for(int i:nums) sum+=i;
+        int leftSum = 0;
+        for(int i=0;i<nums.size();i++){
+            if(leftSum == sum-leftSum-nums[i]) return i;
+            leftSum+=nums[i];
+        }
+        return -1;
+
+        //left+right+current= total
+        //2left = total-current (if left==right)
+        // left = total-current/2
+    }
+};
